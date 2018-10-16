@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @propaty.name %>
+</p>
+
+<p>
+  <strong>Rent:</strong>
+  <%= @propaty.rent %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @propaty.address %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @propaty.age %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @propaty.note %>
+</p>
+
+<%= link_to 'Edit', edit_propaty_path(@propaty) %> |
+<%= link_to 'Back', propaties_path %>
