@@ -12,7 +12,7 @@ class Propaty < ApplicationRecord
   validates :age, presence: true
   validates :note, length: { maximum: 256 }
 
-  def build_closet_stations
+  def build_closest_stations
     MAX_CLOSEST_STATIONS.times do |num|
       closest_stations[num] || closest_stations.build
     end

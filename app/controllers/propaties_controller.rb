@@ -3,29 +3,28 @@ class PropatiesController < ApplicationController
 
   # GET /propaties
   def index
-    @propaties = Propaty.includes(:closest_stations)
+    @propaties = Propaty.all
   end
 
   # GET /propaties/1
   def show
-    @propaty.build_closet_stations
+    @propaty.build_closest_stations
   end
 
   # GET /propaties/new
   def new
     @propaty = Propaty.new
-    @propaty.build_closet_stations
+    @propaty.build_closest_stations
   end
 
   # GET /propaties/1/edit
   def edit
-    @propaty.build_closet_stations
+    @propaty.build_closest_stations
   end
 
   # POST /propaties
   def create
     @propaty = Propaty.new(propaty_params)
-
 
     if @propaty.save
       redirect_to @propaty, notice: 'Propaty was successfully created.'
