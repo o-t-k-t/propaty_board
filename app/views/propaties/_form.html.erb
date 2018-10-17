@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :rent %>
-    <%= f.number_field :rent %>
+    <%= f.number_field :rent %>円
   </div>
 
   <div class="field">
@@ -28,39 +28,30 @@
 
   <div class="field">
     <%= f.label :age %>
-    <%= f.number_field :age %>
+    <%= f.number_field :age %>年
   </div>
 
   <div class="field">
     <%= f.label :note %>
-    <%= f.text_field :note %>
+    <%= f.text_area :note %>
   </div>
 
   <% propaty.closest_stations.each_with_index do |cs, idx| %>
-    <h2>Closest Station <%= idx + 1 %> </h2>
+    <h2>最寄り駅<%= idx + 1 %> </h2>
       <%= f.fields_for :closest_stations, cs do |csf| %>
         <div class="field">
           <%= csf.label :route_name %>
-      </div>
-
-      <div class="field">
           <%= csf.text_field :route_name %>
       </div>
 
       <div class="field">
           <%= csf.label :station_name %>
-      </div>
-
-      <div class="field">
           <%= csf.text_field :station_name %>
       </div>
 
       <div class="field">
           <%= csf.label :to_closest_station_min %>
-      </div>
-
-      <div class="field">
-          <%= csf.number_field :to_closest_station_min %>
+          <%= csf.number_field :to_closest_station_min %>分
         </div>
       <% end %>
   <% end%>
