@@ -63,7 +63,7 @@ class PropatiesController < ApplicationController
       :age,
       :note,
       closest_stations_attributes: [
-        :route_name, :station_name, :to_closest_station_min
+        :id, :route_name, :station_name, :to_closest_station_min
       ]
     )
   end
