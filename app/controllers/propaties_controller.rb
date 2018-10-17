@@ -3,25 +3,29 @@ class PropatiesController < ApplicationController
 
   # GET /propaties
   def index
-    @propaties = Propaty.all
+    @propaties = Propaty.includes(:closest_stations)
   end
 
   # GET /propaties/1
   def show
+    @propaty.build_closet_stations
   end
 
   # GET /propaties/new
   def new
     @propaty = Propaty.new
+    @propaty.build_closet_stations
   end
 
   # GET /propaties/1/edit
   def edit
+    @propaty.build_closet_stations
   end
 
   # POST /propaties
   def create
     @propaty = Propaty.new(propaty_params)
+
 
     if @propaty.save
       redirect_to @propaty, notice: 'Propaty was successfully created.'
@@ -52,6 +56,15 @@ class PropatiesController < ApplicationController
   end
 
   def propaty_params
-    params.require(:propaty).permit(:name, :rent, :address, :age, :note)
+    params.require(:propaty).permit(
+      :name,
+      :rent,
+      :address,
+      :age,
+      :note,
+      closest_stations_attributes: [
+        :route_name, :station_name, :to_closest_station_min
+      ]
+    )
   end
 end

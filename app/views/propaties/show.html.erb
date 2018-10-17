@@ -25,5 +25,17 @@
   <%= @propaty.note %>
 </p>
 
+<% @propaty.closest_stations.each_with_index do |cs, idx| %>
+  <p><strong>Closest Station <%= idx + 1 %></strong><p>
+  <p>
+    <strong>Route:</strong>
+    <%= cs.route_name %>
+  </p>
+
+  <p>
+    <strong>Station:</strong>
+    <%= cs.station_name %>
+  </p>
+<% end%>
 <%= link_to 'Edit', edit_propaty_path(@propaty) %> |
 <%= link_to 'Back', propaties_path %>

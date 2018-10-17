@@ -36,6 +36,35 @@
     <%= f.text_field :note %>
   </div>
 
+  <% propaty.closest_stations.each_with_index do |cs, idx| %>
+    <h2>Closest Station <%= idx + 1 %> </h2>
+      <%= f.fields_for :closest_stations, cs do |csf| %>
+        <div class="field">
+          <%= csf.label :route_name %>
+      </div>
+
+      <div class="field">
+          <%= csf.text_field :route_name %>
+      </div>
+
+      <div class="field">
+          <%= csf.label :station_name %>
+      </div>
+
+      <div class="field">
+          <%= csf.text_field :station_name %>
+      </div>
+
+      <div class="field">
+          <%= csf.label :to_closest_station_min %>
+      </div>
+
+      <div class="field">
+          <%= csf.number_field :to_closest_station_min %>
+        </div>
+      <% end %>
+  <% end%>
+
   <div class="actions">
     <%= f.submit %>
   </div>
