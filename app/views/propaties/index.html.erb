@@ -18,9 +18,9 @@
     <% @propaties.each do |propaty| %>
       <tr>
         <td><%= propaty.name %></td>
-        <td><%= propaty.rent %></td>
+        <td><%= propaty.rent %>円</td>
         <td><%= propaty.address %></td>
-        <td><%= propaty.age %></td>
+        <td><%= propaty.age %>年</td>
         <td><%= propaty.note %></td>
         <td><%= link_to '詳細', propaty %></td>
         <td><%= link_to '編集', edit_propaty_path(propaty) %></td>
